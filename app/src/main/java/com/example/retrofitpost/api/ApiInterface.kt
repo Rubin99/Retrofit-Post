@@ -10,5 +10,5 @@ interface ApiInterface {
     @POST("login")
     fun login (
         @Body requestBody: RequestBody
-    ): retrofit2.Call<LoginResponseData>
+    ): retrofit2.Call<LoginResponse>
 }
