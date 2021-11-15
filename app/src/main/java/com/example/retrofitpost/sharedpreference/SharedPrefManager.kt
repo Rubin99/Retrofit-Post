@@ -21,6 +21,15 @@ class SharedPrefManager (private val context: Context) {
         )
     }
 
+    val displayLogin: LoginResponse
+    get() {
+        val sharedPreferences = context.getSharedPreferences("SharedPref", Context.MODE_PRIVATE)
+        return LoginResponse(
+
+            sharedPreferences.getInt("expiresIn", -1).toString()
+        )
+    }
+
     fun saveUser(loginResponse: LoginResponse){
         val sharedPreferences = context.getSharedPreferences("SharedPref", Context.MODE_PRIVATE)
         val editor = sharedPreferences.edit()
@@ -31,7 +40,16 @@ class SharedPrefManager (private val context: Context) {
         editor.putString("refreshToken", loginResponse.refreshToken)
 
         editor.apply()
+        editor.commit()
 
+    }
+
+    fun logoutUser(){
+        val sharedPreferences = context.getSharedPreferences("SharedPref", Context.MODE_PRIVATE)
+        val editor = sharedPreferences.edit()
+
+        editor.clear()
+        editor.commit()
     }
 
     companion object {

@@ -14,6 +14,15 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="18sp"
+        android:text="Second Activity"
         android:textColor="@color/black"/>
+
+    <Button
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:text="Logout"
+        android:textSize="18sp"/>
 
 </LinearLayout>
